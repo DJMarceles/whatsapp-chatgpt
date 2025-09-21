@@ -1,1 +1,13 @@
 node_modules
+pnpm-lock.yaml
+.DS_Store
+.env*
+.turbo
+.next
+coverage
+dist
+build
+__pycache__
+*.pyc
+.idea
+.vscode

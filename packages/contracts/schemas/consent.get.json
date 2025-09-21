@@ -1,0 +1,15 @@
+{
+  "$id": "schemas/consent.get.json",
+  "type": "object",
+  "properties": {
+    "subject_id": { "type": "string" },
+    "channels": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["email", "sms", "voice", "push"] }
+    },
+    "purpose": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["subject_id", "request_id"],
+  "additionalProperties": false
+}

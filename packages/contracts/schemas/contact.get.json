@@ -1,0 +1,20 @@
+{
+  "$id": "schemas/contact.get.json",
+  "type": "object",
+  "properties": {
+    "contact_id": { "type": "string" },
+    "external_id": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phone": { "type": "string" },
+    "include_history": { "type": "boolean", "default": false },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["request_id"],
+  "anyOf": [
+    { "required": ["contact_id"] },
+    { "required": ["external_id"] },
+    { "required": ["email"] },
+    { "required": ["phone"] }
+  ],
+  "additionalProperties": false
+}

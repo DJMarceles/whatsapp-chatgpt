@@ -1,0 +1,17 @@
+{
+  "$id": "schemas/case.create.json",
+  "type": "object",
+  "properties": {
+    "subject": { "type": "string" },
+    "description": { "type": "string" },
+    "priority": { "type": "string", "enum": ["low", "medium", "high", "urgent"] },
+    "status": { "type": "string" },
+    "contact_id": { "type": "string" },
+    "account_id": { "type": "string" },
+    "origin": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["subject", "description", "request_id"],
+  "additionalProperties": false
+}

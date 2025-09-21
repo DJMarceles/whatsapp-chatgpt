@@ -1,0 +1,22 @@
+{
+  "name": "@kollie/contracts",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "schemas"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "lint": "eslint . --ext .ts",
+    "test": "node -e \"console.log('contracts test placeholder')\""
+  },
+  "dependencies": {
+    "json-schema-to-ts": "3.1.0",
+    "zod": "3.23.8"
+  },
+  "devDependencies": {
+    "rimraf": "5.0.5"
+  }
+}

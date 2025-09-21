@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/case.update_status.json",
+  "type": "object",
+  "properties": {
+    "case_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["new", "in_progress", "waiting_on_customer", "resolved", "closed"] },
+    "reason": { "type": "string" },
+    "assigned_to": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["case_id", "status", "request_id"],
+  "additionalProperties": false
+}

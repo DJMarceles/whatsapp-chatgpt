@@ -1,0 +1,20 @@
+{
+  "$id": "schemas/appointment.schedule.json",
+  "type": "object",
+  "properties": {
+    "contact_id": { "type": "string" },
+    "lead_id": { "type": "string" },
+    "slot_id": { "type": "string" },
+    "start_at": { "type": "string", "format": "date-time" },
+    "end_at": { "type": "string", "format": "date-time" },
+    "location": { "type": "string" },
+    "notes": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["start_at", "end_at", "request_id"],
+  "anyOf": [
+    { "required": ["contact_id"] },
+    { "required": ["lead_id"] }
+  ],
+  "additionalProperties": false
+}

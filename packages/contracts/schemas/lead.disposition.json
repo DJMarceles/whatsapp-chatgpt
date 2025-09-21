@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/lead.disposition.json",
+  "type": "object",
+  "properties": {
+    "lead_id": { "type": "string" },
+    "outcome": { "type": "string", "enum": ["new_appointment", "call_back", "no_interest", "wrong_number"] },
+    "note": { "type": "string" },
+    "next_action_at": { "type": "string", "format": "date-time" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["lead_id", "outcome", "request_id"],
+  "additionalProperties": false
+}

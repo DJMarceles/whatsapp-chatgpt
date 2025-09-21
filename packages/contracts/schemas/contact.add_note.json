@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/contact.add_note.json",
+  "type": "object",
+  "properties": {
+    "contact_id": { "type": "string" },
+    "note": { "type": "string" },
+    "author": { "type": "string" },
+    "visibility": { "type": "string", "enum": ["internal", "external"] },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["contact_id", "note", "request_id"],
+  "additionalProperties": false
+}

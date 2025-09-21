@@ -1,0 +1,14 @@
+{
+  "$id": "schemas/lead.schedule_callback.json",
+  "type": "object",
+  "properties": {
+    "lead_id": { "type": "string" },
+    "callback_at": { "type": "string", "format": "date-time" },
+    "agent_id": { "type": "string" },
+    "channel": { "type": "string", "enum": ["phone", "sms", "email"] },
+    "notes": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["lead_id", "callback_at", "request_id"],
+  "additionalProperties": false
+}
