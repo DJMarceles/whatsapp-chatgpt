@@ -1,0 +1,25 @@
+{
+  "$id": "schemas/survey.record_response.json",
+  "type": "object",
+  "properties": {
+    "survey_id": { "type": "string" },
+    "invitation_id": { "type": "string" },
+    "responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": { "type": "string" },
+          "value": { "type": ["string", "number", "boolean", "null"] },
+          "scale": { "type": "string" }
+        },
+        "required": ["question_id", "value"],
+        "additionalProperties": false
+      }
+    },
+    "submitted_at": { "type": "string", "format": "date-time" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["survey_id", "invitation_id", "responses", "submitted_at", "request_id"],
+  "additionalProperties": false
+}

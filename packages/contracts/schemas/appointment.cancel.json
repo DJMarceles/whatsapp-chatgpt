@@ -1,0 +1,12 @@
+{
+  "$id": "schemas/appointment.cancel.json",
+  "type": "object",
+  "properties": {
+    "appointment_id": { "type": "string" },
+    "reason": { "type": "string" },
+    "notify_participants": { "type": "boolean", "default": true },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["appointment_id", "request_id"],
+  "additionalProperties": false
+}

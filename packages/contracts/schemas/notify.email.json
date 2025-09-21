@@ -1,0 +1,42 @@
+{
+  "$id": "schemas/notify.email.json",
+  "type": "object",
+  "properties": {
+    "to": {
+      "type": "array",
+      "items": { "type": "string", "format": "email" },
+      "minItems": 1
+    },
+    "cc": {
+      "type": "array",
+      "items": { "type": "string", "format": "email" }
+    },
+    "bcc": {
+      "type": "array",
+      "items": { "type": "string", "format": "email" }
+    },
+    "subject": { "type": "string" },
+    "body": { "type": "string" },
+    "template_id": { "type": "string" },
+    "variables": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+    },
+    "attachments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "filename": { "type": "string" },
+          "content_type": { "type": "string" },
+          "data_base64": { "type": "string" }
+        },
+        "required": ["filename", "data_base64"],
+        "additionalProperties": false
+      }
+    },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["to", "subject", "request_id"],
+  "additionalProperties": false
+}

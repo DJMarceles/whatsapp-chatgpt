@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/case.add_comment.json",
+  "type": "object",
+  "properties": {
+    "case_id": { "type": "string" },
+    "comment": { "type": "string" },
+    "author": { "type": "string" },
+    "public": { "type": "boolean", "default": false },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["case_id", "comment", "request_id"],
+  "additionalProperties": false
+}

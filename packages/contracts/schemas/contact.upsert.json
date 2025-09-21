@@ -1,0 +1,37 @@
+{
+  "$id": "schemas/contact.upsert.json",
+  "type": "object",
+  "properties": {
+    "contact_id": { "type": "string" },
+    "external_id": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "phone": { "type": "string" },
+    "first_name": { "type": "string" },
+    "last_name": { "type": "string" },
+    "company": { "type": "string" },
+    "title": { "type": "string" },
+    "address": {
+      "type": "object",
+      "properties": {
+        "line1": { "type": "string" },
+        "line2": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "postal_code": { "type": "string" },
+        "country": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+    },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["email", "request_id"],
+  "additionalProperties": false
+}

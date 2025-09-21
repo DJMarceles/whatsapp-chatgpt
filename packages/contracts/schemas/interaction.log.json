@@ -1,0 +1,35 @@
+{
+  "$id": "schemas/interaction.log.json",
+  "type": "object",
+  "properties": {
+    "interaction_id": { "type": "string" },
+    "subject_id": { "type": "string" },
+    "channel": { "type": "string", "enum": ["voice", "chat", "sms", "email"] },
+    "purpose": { "type": "string" },
+    "transcript_url": { "type": "string", "format": "uri" },
+    "summary": { "type": "string" },
+    "tools_used": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tool": { "type": "string" },
+          "status": { "type": "string", "enum": ["success", "failure", "pending", "approved", "denied"] },
+          "args_hash": { "type": "string" },
+          "duration_ms": { "type": "integer", "minimum": 0 }
+        },
+        "required": ["tool", "status"],
+        "additionalProperties": false
+      }
+    },
+    "outcome": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+    },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["interaction_id", "subject_id", "channel", "occurred_at", "request_id"],
+  "additionalProperties": false
+}

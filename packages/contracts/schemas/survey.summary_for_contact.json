@@ -1,0 +1,15 @@
+{
+  "$id": "schemas/survey.summary_for_contact.json",
+  "type": "object",
+  "properties": {
+    "contact_id": { "type": "string" },
+    "survey_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "window_days": { "type": "integer", "minimum": 1 },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["contact_id", "request_id"],
+  "additionalProperties": false
+}

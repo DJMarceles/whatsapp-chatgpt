@@ -1,0 +1,17 @@
+{
+  "$id": "schemas/survey.enqueue_target.json",
+  "type": "object",
+  "properties": {
+    "survey_id": { "type": "string" },
+    "contact_id": { "type": "string" },
+    "delivery_channel": { "type": "string", "enum": ["email", "sms", "voice"] },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean", "null"] }
+    },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["survey_id", "contact_id", "delivery_channel", "request_id"],
+  "additionalProperties": false
+}

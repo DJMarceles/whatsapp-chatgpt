@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/lead.qualify.json",
+  "type": "object",
+  "properties": {
+    "lead_id": { "type": "string" },
+    "qualified_by": { "type": "string" },
+    "score": { "type": "number", "minimum": 0, "maximum": 100 },
+    "notes": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["lead_id", "request_id"],
+  "additionalProperties": false
+}

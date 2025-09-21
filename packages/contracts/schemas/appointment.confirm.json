@@ -1,0 +1,12 @@
+{
+  "$id": "schemas/appointment.confirm.json",
+  "type": "object",
+  "properties": {
+    "appointment_id": { "type": "string" },
+    "channel": { "type": "string", "enum": ["sms", "email", "phone"] },
+    "message": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["appointment_id", "channel", "request_id"],
+  "additionalProperties": false
+}

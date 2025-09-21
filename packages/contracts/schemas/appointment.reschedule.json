@@ -1,0 +1,13 @@
+{
+  "$id": "schemas/appointment.reschedule.json",
+  "type": "object",
+  "properties": {
+    "appointment_id": { "type": "string" },
+    "new_start_at": { "type": "string", "format": "date-time" },
+    "new_end_at": { "type": "string", "format": "date-time" },
+    "reason": { "type": "string" },
+    "request_id": { "type": "string", "description": "idempotency key" }
+  },
+  "required": ["appointment_id", "new_start_at", "new_end_at", "request_id"],
+  "additionalProperties": false
+}
